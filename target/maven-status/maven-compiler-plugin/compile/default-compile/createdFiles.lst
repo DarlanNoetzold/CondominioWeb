@@ -1,0 +1,10 @@
+br\edu\ifsul\controle\ControleCondominio.class
+br\edu\ifsul\dao\DAOGenerico.class
+br\edu\ifsul\util\Util.class
+br\edu\ifsul\controle\ControleLocatario.class
+br\edu\ifsul\controle\ControleAluguel.class
+br\edu\ifsul\controle\ControleMensalidades.class
+br\edu\ifsul\dao\PessoaDAO.class
+br\edu\ifsul\controle\ControlePessoa.class
+br\edu\ifsul\controle\UnidadeCondominal.class
+br\edu\ifsul\dao\LocatarioDAO.class
