@@ -1,9 +1,15 @@
 br\edu\ifsul\controle\ControleCondominio.class
 br\edu\ifsul\dao\DAOGenerico.class
+br\edu\ifsul\dao\RecursoDAO.class
 br\edu\ifsul\util\Util.class
+br\edu\ifsul\controle\ControleRecurso.class
+br\edu\ifsul\converters\ConverterLocatario.class
 br\edu\ifsul\controle\ControleLocatario.class
+br\edu\ifsul\dao\CondominioDAO.class
 br\edu\ifsul\controle\ControleAluguel.class
 br\edu\ifsul\controle\ControleMensalidades.class
+br\edu\ifsul\converters\ConverterCalendar.class
+br\edu\ifsul\dao\AluguelDAO.class
 br\edu\ifsul\dao\PessoaDAO.class
 br\edu\ifsul\controle\ControlePessoa.class
 br\edu\ifsul\controle\UnidadeCondominal.class
