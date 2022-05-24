@@ -70,7 +70,7 @@
                                          size="5" readonly="true"/>
                             <p:outputLabel value="Valor" for="txtValor"/>
                             <p:inputText id="txtValor" value="#{controleAluguel.objeto.valor}"
-                                         size="11" maxlength="11" />
+                                         size="11" maxlength="11" placeholder="Obrigatório" />
                             <p:outputLabel value="Inicio do contrato" for="txtInicioContrato"/>
                             <p:calendar id="txtInicioContrato" 
                                         value="#{controleAluguel.objeto.inicioContrato}"
@@ -85,7 +85,7 @@
                             </p:calendar>
                             <p:outputLabel value="Dia do Vencimento" for="txtDiaVencimento"/>
                             <p:inputText id="txtDiaVencimento" value="#{controleAluguel.objeto.diaVencimento}"
-                                         size="3" maxlength="3" />
+                                         size="3" maxlength="3" placeholder="Obrigatório"/>
                             <p:outputLabel value="Locatario" for="selectLocatario"/>
                             <p:selectOneMenu value="#{controleAluguel.objeto.locatario}"
                                              id="selectLocatario"

@@ -11,38 +11,44 @@
             <h:form id="formListagem" prependId="false">
                 <p:growl/>
                 <p:commandButton value="Novo"
-                                 actionListener="#{controlePessoa.novo()}"
+                                 actionListener="#{controleUnidadeCondominal.novo()}"
                                  icon="pi pi-plus"
                                  update="formEdicao"
                                  process="@this"
                                  oncomplete="PF('dlg').show();"/>
                 
-                <p:dataTable value="#{controlePessoa.dao.listaObjetos}" var="obj"
+                <p:dataTable value="#{controleUnidadeCondominal.dao.listaObjetos}" var="obj"
                              id="listagem">
                     <p:column headerText="ID">
                         <p:outputLabel value="#{obj.id}"/>
                     </p:column>
-                    <p:column headerText="Nome">
-                        <p:outputLabel value="#{obj.nome}"/>
+                    <p:column headerText="Area">
+                        <p:outputLabel value="#{obj.area}"/>
                     </p:column>     
-                    <p:column headerText="CPF">
-                        <p:outputLabel value="#{obj.cpf}"/>
+                    <p:column headerText="Descricao">
+                        <p:outputLabel value="#{obj.descricao}"/>
                     </p:column>  
-                    <p:column headerText="telefone">
-                        <p:outputLabel value="#{obj.telefone}"/>
+                    <p:column headerText="Numero">
+                        <p:outputLabel value="#{obj.numero}"/>
                     </p:column> 
-                    <p:column headerText="email">
-                        <p:outputLabel value="#{obj.email}"/>
+                    <p:column headerText="Numero Quarto">
+                        <p:outputLabel value="#{obj.numeroQuarto}"/>
+                    </p:column> 
+                    <p:column headerText="Condominio">
+                        <p:outputLabel value="#{obj.condominio.nome}"/>
+                    </p:column> 
+                    <p:column headerText="Pessoa">
+                        <p:outputLabel value="#{obj.pessoa.nome}"/>
                     </p:column> 
                     <p:column headerText="Ações">
                         <div align="center">
-                            <p:commandButton actionListener="#{controlePessoa.alterar(obj.id)}"
+                            <p:commandButton actionListener="#{controleUnidadeCondominal.alterar(obj.id)}"
                                              icon="pi pi-pencil"
                                              title="Editar"
                                              update="formEdicao"
                                              process="@this"
                                              oncomplete="PF('dlg').show();"/>
-                            <p:commandButton actionListener="#{controlePessoa.excluir(obj.id)}"
+                            <p:commandButton actionListener="#{controleUnidadeCondominal.excluir(obj.id)}"
                                              icon="pi pi-trash"
                                              update="@form"
                                              process="@this"
@@ -59,20 +65,20 @@
                     <div align="center">
                         <p:panelGrid columns="2">
                             <p:outputLabel value="ID"/>
-                            <p:inputText value="#{controlePessoa.objeto.id}"
+                            <p:inputText value="#{controleUnidadeCondominal.objeto.id}"
                                          size="5" readonly="true"/>
                             <p:outputLabel value="Nome" for="txtNome"/>
-                            <p:inputText id="txtNome" value="#{controlePessoa.objeto.nome}"
+                            <p:inputText id="txtNome" value="#{controleUnidadeCondominal.objeto.nome}"
                                          size="50" maxlength="50"
                                          placeholder="Obrigatório"/>
                             <p:outputLabel value="CPF" for="txtCPF"/>
-                            <p:inputText id="txtCPF" value="#{controlePessoa.objeto.cpf}"
+                            <p:inputText id="txtCPF" value="#{controleUnidadeCondominal.objeto.cpf}"
                                          size="11" maxlength="11" placeholder="Obrigatório"/>
                             <p:outputLabel value="telefone" for="txtTelefone"/>
-                            <p:inputText id="txtTelefone" value="#{controlePessoa.objeto.telefone}"
+                            <p:inputText id="txtTelefone" value="#{controleUnidadeCondominal.objeto.telefone}"
                                          size="13" maxlength="13" placeholder="Obrigatório"/>
                             <p:outputLabel value="email" for="txtEmail"/>
-                            <p:inputText id="txtEmail" value="#{controlePessoa.objeto.email}"
+                            <p:inputText id="txtEmail" value="#{controleUnidadeCondominal.objeto.email}"
                                          size="40" maxlength="40" placeholder="Obrigatório"/>
                         </p:panelGrid>
                     </div>
@@ -80,7 +86,7 @@
                         <div align="center">
                             <p:commandButton value="Salvar"
                                              icon="pi pi-save"
-                                             actionListener="#{controlePessoa.salvar()}"
+                                             actionListener="#{controleUnidadeCondominal.salvar()}"
                                              update="formEdicao formListagem"
                                              oncomplete="if (!args.validationFailed){PF('dlg').hide();}"/>
                         </div>
