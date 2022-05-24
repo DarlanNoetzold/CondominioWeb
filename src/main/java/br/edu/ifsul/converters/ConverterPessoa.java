@@ -18,7 +18,7 @@ import javax.persistence.PersistenceContext;
  *
  * @author darlan
  */
-@Named(value = "converterPessoa")
+@Named(value = "converterProprietario")
 @RequestScoped
 public class ConverterPessoa implements Serializable, Converter {
 

@@ -104,7 +104,7 @@ public class ControleUnidadeCondominal implements Serializable {
         this.dao = dao;
     }
 
-   
-    
-    
+    public UnidadeCondominal getObjeto() {
+        return objeto;
+    }
 }

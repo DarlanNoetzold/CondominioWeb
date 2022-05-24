@@ -6,7 +6,7 @@
       xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <ui:composition template="/templates/template.xhtml">
-        <ui:define name="titulo">Manutenção de Pessoa</ui:define>
+        <ui:define name="titulo">Manutenção de Proprietario</ui:define>
         <ui:define name="conteudo">
             <h:form id="formListagem" prependId="false">
                 <p:growl/>
@@ -37,8 +37,8 @@
                     <p:column headerText="Condominio">
                         <p:outputLabel value="#{obj.condominio.nome}"/>
                     </p:column> 
-                    <p:column headerText="Pessoa">
-                        <p:outputLabel value="#{obj.pessoa.nome}"/>
+                    <p:column headerText="Proprietario">
+                        <p:outputLabel value="#{obj.proprietario.nome}"/>
                     </p:column> 
                     <p:column headerText="Ações">
                         <div align="center">
@@ -82,6 +82,7 @@
                             <p:inputText id="txtNumeroQuarto" value="#{controleUnidadeCondominal.objeto.numeroQuarto}"
                                          size="9" maxlength="9"
                                          placeholder="Obrigatório"/>
+                            <p:outputLabel value="Condominio" for="selectCondominio"/>
                             <p:selectOneMenu value="#{controleUnidadeCondominal.objeto.condominio}"
                                              id="selectCondominio"
                                              filter="true"
@@ -92,13 +93,14 @@
                                 <f:selectItems value="#{controleUnidadeCondominal.daoCondominio.listaTodos}"
                                                var="loc" itemLabel="#{loc.nome}"/>
                             </p:selectOneMenu>
-                            <p:selectOneMenu value="#{controleUnidadeCondominal.objeto.pessoa}"
-                                             id="selectPessoa"
+                            <p:outputLabel value="Proprietario" for="selectProprietario"/>
+                            <p:selectOneMenu value="#{controleUnidadeCondominal.objeto.proprietario}"
+                                             id="selectProprietario"
                                              filter="true"
                                              filterMatchMode="startsWith">
                                 <f:selectItem noSelectionOption="true"
                                               itemLabel="Selecione um registro"/>
-                                <f:converter binding="#{converterPessoa}"/>
+                                <f:converter binding="#{converterProprietario}"/>
                                 <f:selectItems value="#{controleUnidadeCondominal.daoPessoa.listaTodos}"
                                                var="loc" itemLabel="#{loc.nome}"/>
                             </p:selectOneMenu>

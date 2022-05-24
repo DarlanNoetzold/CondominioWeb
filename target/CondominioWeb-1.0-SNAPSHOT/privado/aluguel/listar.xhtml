@@ -41,6 +41,9 @@
                      <p:column headerText="Locatario">
                         <p:outputLabel value="#{obj.locatario.nome}"/>
                     </p:column>
+                    <p:column headerText="Unidade Condominio">
+                        <p:outputLabel value="#{obj.unidadeCondominal.numero}"/>
+                    </p:column>
                     <p:column headerText="Ações">
                         <div align="center">
                             <p:commandButton actionListener="#{controleAluguel.alterar(obj.id)}"
@@ -97,6 +100,7 @@
                                 <f:selectItems value="#{controleAluguel.daoLocatario.listaTodos}"
                                                var="loc" itemLabel="#{loc.nome}"/>
                             </p:selectOneMenu>
+                            <p:outputLabel value="Unidade Condominal" for="selectUnidadeCondominal"/>
                             <p:selectOneMenu value="#{controleAluguel.objeto.unidadeCondominal}"
                                              id="selectUnidadeCondominal"
                                              filter="true"
@@ -105,7 +109,7 @@
                                               itemLabel="Selecione um registro"/>
                                 <f:converter binding="#{converterUnidadeCondominal}"/>
                                 <f:selectItems value="#{controleAluguel.daoUnidadeCondominal.listaTodos}"
-                                               var="loc" itemLabel="#{loc.nome}"/>
+                                               var="loc" itemLabel="#{loc.numero}"/>
                             </p:selectOneMenu>
                         </p:panelGrid>
                     </div>
