@@ -67,19 +67,41 @@
                             <p:outputLabel value="ID"/>
                             <p:inputText value="#{controleUnidadeCondominal.objeto.id}"
                                          size="5" readonly="true"/>
-                            <p:outputLabel value="Nome" for="txtNome"/>
-                            <p:inputText id="txtNome" value="#{controleUnidadeCondominal.objeto.nome}"
-                                         size="50" maxlength="50"
+                            <p:outputLabel value="Valor" for="txtValor"/>
+                            <p:inputText id="txtValor" value="#{controleUnidadeCondominal.objeto.area}"
+                                         size="9" maxlength="9"
                                          placeholder="Obrigatório"/>
-                            <p:outputLabel value="CPF" for="txtCPF"/>
-                            <p:inputText id="txtCPF" value="#{controleUnidadeCondominal.objeto.cpf}"
-                                         size="11" maxlength="11" placeholder="Obrigatório"/>
-                            <p:outputLabel value="telefone" for="txtTelefone"/>
-                            <p:inputText id="txtTelefone" value="#{controleUnidadeCondominal.objeto.telefone}"
-                                         size="13" maxlength="13" placeholder="Obrigatório"/>
-                            <p:outputLabel value="email" for="txtEmail"/>
-                            <p:inputText id="txtEmail" value="#{controleUnidadeCondominal.objeto.email}"
-                                         size="40" maxlength="40" placeholder="Obrigatório"/>
+                            <p:outputLabel value="Descrição" for="txtDescricao"/>
+                            <p:inputText id="txtDescricao" value="#{controleUnidadeCondominal.objeto.descricao}"
+                                         placeholder="Obrigatório"/>
+                            <p:outputLabel value="numero" for="txtNumero"/>
+                            <p:inputText id="txtNumero" value="#{controleUnidadeCondominal.objeto.numero}"
+                                         size="9" maxlength="9"
+                                         placeholder="Obrigatório"/>
+                            <p:outputLabel value="Numero Quarto" for="txtNumeroQuarto"/>
+                            <p:inputText id="txtNumeroQuarto" value="#{controleUnidadeCondominal.objeto.numeroQuarto}"
+                                         size="9" maxlength="9"
+                                         placeholder="Obrigatório"/>
+                            <p:selectOneMenu value="#{controleUnidadeCondominal.objeto.condominio}"
+                                             id="selectCondominio"
+                                             filter="true"
+                                             filterMatchMode="startsWith">
+                                <f:selectItem noSelectionOption="true"
+                                              itemLabel="Selecione um registro"/>
+                                <f:converter binding="#{converterCondominio}"/>
+                                <f:selectItems value="#{controleUnidadeCondominal.daoCondominio.listaTodos}"
+                                               var="loc" itemLabel="#{loc.nome}"/>
+                            </p:selectOneMenu>
+                            <p:selectOneMenu value="#{controleUnidadeCondominal.objeto.pessoa}"
+                                             id="selectPessoa"
+                                             filter="true"
+                                             filterMatchMode="startsWith">
+                                <f:selectItem noSelectionOption="true"
+                                              itemLabel="Selecione um registro"/>
+                                <f:converter binding="#{converterPessoa}"/>
+                                <f:selectItems value="#{controleUnidadeCondominal.daoPessoa.listaTodos}"
+                                               var="loc" itemLabel="#{loc.nome}"/>
+                            </p:selectOneMenu>
                         </p:panelGrid>
                     </div>
                     <p:panel>

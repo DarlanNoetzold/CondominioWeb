@@ -4,7 +4,11 @@
  */
 package br.edu.ifsul.controle;
 
+import br.edu.ifsul.condominiomodel.Condominio;
 import br.edu.ifsul.condominiomodel.UnidadeCondominal;
+import br.edu.ifsul.condominiomodel.Pessoa;
+import br.edu.ifsul.dao.CondominioDAO;
+import br.edu.ifsul.dao.PessoaDAO;
 import br.edu.ifsul.dao.UnidadeCondominalDAO;
 import br.edu.ifsul.util.Util;
 import java.io.Serializable;
@@ -21,8 +25,14 @@ import javax.inject.Named;
 public class ControleUnidadeCondominal implements Serializable {
     
     @EJB
-    private UnidadeCondominalDAO<ControleUnidadeCondominal> dao;
+    private UnidadeCondominalDAO<UnidadeCondominal> dao;
     private UnidadeCondominal objeto;
+    
+    @EJB
+    private CondominioDAO<Condominio> daoCondominio;
+    
+    @EJB
+    private PessoaDAO<Pessoa> daoPessoa;
 
     public ControleUnidadeCondominal() {
     }
@@ -66,11 +76,11 @@ public class ControleUnidadeCondominal implements Serializable {
         }
     }
 
-    public UnidadeCondominalDAO<ControleUnidadeCondominal> getDao() {
+    public UnidadeCondominalDAO<UnidadeCondominal> getDao() {
         return dao;
     }
 
-    public void setDao(UnidadeCondominalDAO<ControleUnidadeCondominal> dao) {
+    public void setDao(UnidadeCondominalDAO<UnidadeCondominal> dao) {
         this.dao = dao;
     }
 
@@ -80,6 +90,22 @@ public class ControleUnidadeCondominal implements Serializable {
 
     public void setObjeto(UnidadeCondominal objeto) {
         this.objeto = objeto;
+    }
+
+    public CondominioDAO<Condominio> getDaoCondominio() {
+        return daoCondominio;
+    }
+
+    public void setDaoCondominio(CondominioDAO<Condominio> daoCondominio) {
+        this.daoCondominio = daoCondominio;
+    }
+
+    public PessoaDAO<Pessoa> getDaoPessoa() {
+        return daoPessoa;
+    }
+
+    public void setDaoPessoa(PessoaDAO<Pessoa> daoPessoa) {
+        this.daoPessoa = daoPessoa;
     }
 
    
