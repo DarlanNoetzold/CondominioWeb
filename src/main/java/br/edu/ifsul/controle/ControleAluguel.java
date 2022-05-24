@@ -6,8 +6,10 @@ package br.edu.ifsul.controle;
 
 import br.edu.ifsul.condominiomodel.Aluguel;
 import br.edu.ifsul.condominiomodel.Locatario;
+import br.edu.ifsul.condominiomodel.UnidadeCondominal;
 import br.edu.ifsul.dao.AluguelDAO;
 import br.edu.ifsul.dao.LocatarioDAO;
+import br.edu.ifsul.dao.UnidadeCondominalDAO;
 import br.edu.ifsul.util.Util;
 import java.io.Serializable;
 import javax.ejb.EJB;
@@ -28,6 +30,9 @@ public class ControleAluguel implements Serializable {
     
     @EJB
     private LocatarioDAO<Locatario> daoLocatario;
+    
+    @EJB
+    private UnidadeCondominalDAO<UnidadeCondominal> daoUnidadeCondominal;
 
     public ControleAluguel() {
     }
@@ -93,6 +98,14 @@ public class ControleAluguel implements Serializable {
 
     public void setDaoLocatario(LocatarioDAO<Locatario> daoLocatario) {
         this.daoLocatario = daoLocatario;
+    }
+
+    public UnidadeCondominalDAO<UnidadeCondominal> getDaoUnidadeCondominal() {
+        return daoUnidadeCondominal;
+    }
+
+    public void setDaoUnidadeCondominal(UnidadeCondominalDAO<UnidadeCondominal> daoUnidadeCondominal) {
+        this.daoUnidadeCondominal = daoUnidadeCondominal;
     }
     
     

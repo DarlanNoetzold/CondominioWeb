@@ -97,6 +97,16 @@
                                 <f:selectItems value="#{controleAluguel.daoLocatario.listaTodos}"
                                                var="loc" itemLabel="#{loc.nome}"/>
                             </p:selectOneMenu>
+                            <p:selectOneMenu value="#{controleAluguel.objeto.unidadeCondominal}"
+                                             id="selectUnidadeCondominal"
+                                             filter="true"
+                                             filterMatchMode="startsWith">
+                                <f:selectItem noSelectionOption="true"
+                                              itemLabel="Selecione um registro"/>
+                                <f:converter binding="#{converterUnidadeCondominal}"/>
+                                <f:selectItems value="#{controleAluguel.daoUnidadeCondominal.listaTodos}"
+                                               var="loc" itemLabel="#{loc.nome}"/>
+                            </p:selectOneMenu>
                         </p:panelGrid>
                     </div>
                     <p:panel>

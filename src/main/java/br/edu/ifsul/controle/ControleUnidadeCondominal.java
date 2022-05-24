@@ -76,18 +76,6 @@ public class ControleUnidadeCondominal implements Serializable {
         }
     }
 
-    public UnidadeCondominalDAO<UnidadeCondominal> getDao() {
-        return dao;
-    }
-
-    public void setDao(UnidadeCondominalDAO<UnidadeCondominal> dao) {
-        this.dao = dao;
-    }
-
-    public UnidadeCondominal getObjeto() {
-        return objeto;
-    }
-
     public void setObjeto(UnidadeCondominal objeto) {
         this.objeto = objeto;
     }
@@ -106,6 +94,14 @@ public class ControleUnidadeCondominal implements Serializable {
 
     public void setDaoPessoa(PessoaDAO<Pessoa> daoPessoa) {
         this.daoPessoa = daoPessoa;
+    }
+
+    public UnidadeCondominalDAO<UnidadeCondominal> getDao() {
+        return dao;
+    }
+
+    public void setDao(UnidadeCondominalDAO<UnidadeCondominal> dao) {
+        this.dao = dao;
     }
 
    

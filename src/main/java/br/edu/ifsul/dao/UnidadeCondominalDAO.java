@@ -9,9 +9,9 @@ import java.io.Serializable;
 
 /**
  *
- * @author darla
+ * @author darlan
  */
-public class UnidadeCondominalDAO <TIPO> extends DAOGenerico<UnidadeCondominal> implements Serializable {
+public class UnidadeCondominalDAO<TIPO> extends DAOGenerico<UnidadeCondominal> implements Serializable {
     public UnidadeCondominalDAO(){
         super();
         classePersistente = UnidadeCondominal.class;
