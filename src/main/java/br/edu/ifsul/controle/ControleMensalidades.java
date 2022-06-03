@@ -6,7 +6,7 @@ package br.edu.ifsul.controle;
 
 /**
  *
- * @author darla
+ * @author darlan
  */
 public class ControleMensalidades {
     
