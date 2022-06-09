@@ -1,6 +1,7 @@
 br\edu\ifsul\converters\ConverterUnidadeCondominal.class
 br\edu\ifsul\controle\ControleCondominio.class
 br\edu\ifsul\converters\ConverterCondominio.class
+br\edu\ifsul\dao\Ordem.class
 br\edu\ifsul\dao\DAOGenerico.class
 br\edu\ifsul\dao\UnidadeCondominalDAO.class
 br\edu\ifsul\dao\RecursoDAO.class
@@ -8,6 +9,7 @@ br\edu\ifsul\util\Util.class
 br\edu\ifsul\converters\ConverterPessoa.class
 br\edu\ifsul\controle\ControleRecurso.class
 br\edu\ifsul\controle\ControleUnidadeCondominal.class
+br\edu\ifsul\converters\ConverterOrdem.class
 br\edu\ifsul\converters\ConverterLocatario.class
 br\edu\ifsul\controle\ControleLocatario.class
 br\edu\ifsul\dao\CondominioDAO.class
