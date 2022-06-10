@@ -17,8 +17,49 @@
                                  process="@this"
                                  oncomplete="PF('dlg').show();"/>
                 
+                <div align="center">
+                    <p:panelGrid columns="11">
+                        <p:outputLabel value="Ordem:"/>
+                        <p:selectOneMenu value="#{controleLocatario.dao.ordemAtual}"
+                                         converter="#{controleLocatario.dao.converterOrdem}">
+                            <f:selectItems value="#{controleLocatario.dao.listaOrdem}"
+                                var="ord" itemValue="#{ord.atributo}"/>
+                            <p:ajax update="listagem"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="Filtro:"/>
+                        <p:inputText value="#{controleLocatario.dao.filtro}">
+                          
+                        </p:inputText>
+                        <p:commandButton value="Filtrar" update="listagem"/>
+                        <p:outputLabel value="Máximo de objetos"/>
+                        <p:selectOneMenu value="#{controleLocatario.dao.maximoObjetos}">
+                            <f:selectItem itemValue="3" itemLabel="3"/>
+                            <f:selectItem itemValue="5" itemLabel="5"/>
+                            <f:selectItem itemValue="10" itemLabel="10"/>
+                            <f:selectItem itemValue="20" itemLabel="20"/>
+                            <f:selectItem itemValue="50" itemLabel="50"/>
+                            <p:ajax update="listagem"/>
+                        </p:selectOneMenu>
+                        <p:commandButton action="#{controleLocatario.dao.primeiro()}"
+                                         title="Primeiro" update="listagem"
+                                         icon="pi pi-step-backward"/>
+                        <p:commandButton action="#{controleLocatario.dao.anterior()}"
+                                         title="Anterior" update="listagem"
+                                         icon="pi pi-chevron-left"/>  
+                        <p:commandButton action="#{controleLocatario.dao.proximo()}"
+                                         title="Proximo" update="listagem"
+                                         icon="pi pi-chevron-right"/>                         
+                        <p:commandButton action="#{controleLocatario.dao.ultimo()}"
+                                         title="Ultimo" update="listagem"
+                                         icon="pi pi-step-forward"/>                        
+                    </p:panelGrid>
+                </div>
+                
                 <p:dataTable value="#{controleLocatario.dao.listaObjetos}" var="obj"
                              id="listagem">
+                    <f:facet name="footer">
+                        <p:outputLabel value="#{controleLocatario.dao.mensagemNavegacao}"/>
+                    </f:facet>
                     <p:column headerText="ID">
                         <p:outputLabel value="#{obj.id}"/>
                     </p:column>

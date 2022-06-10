@@ -17,8 +17,49 @@
                                  process="@this"
                                  oncomplete="PF('dlg').show();"/>
                 
+                <div align="center">
+                    <p:panelGrid columns="11">
+                        <p:outputLabel value="Ordem:"/>
+                        <p:selectOneMenu value="#{controleUnidadeCondominal.dao.ordemAtual}"
+                                         converter="#{controleUnidadeCondominal.dao.converterOrdem}">
+                            <f:selectItems value="#{controleUnidadeCondominal.dao.listaOrdem}"
+                                var="ord" itemValue="#{ord.atributo}"/>
+                            <p:ajax update="listagem"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="Filtro:"/>
+                        <p:inputText value="#{controleUnidadeCondominal.dao.filtro}">
+                          
+                        </p:inputText>
+                        <p:commandButton value="Filtrar" update="listagem"/>
+                        <p:outputLabel value="Máximo de objetos"/>
+                        <p:selectOneMenu value="#{controleUnidadeCondominal.dao.maximoObjetos}">
+                            <f:selectItem itemValue="3" itemLabel="3"/>
+                            <f:selectItem itemValue="5" itemLabel="5"/>
+                            <f:selectItem itemValue="10" itemLabel="10"/>
+                            <f:selectItem itemValue="20" itemLabel="20"/>
+                            <f:selectItem itemValue="50" itemLabel="50"/>
+                            <p:ajax update="listagem"/>
+                        </p:selectOneMenu>
+                        <p:commandButton action="#{controleUnidadeCondominal.dao.primeiro()}"
+                                         title="Primeiro" update="listagem"
+                                         icon="pi pi-step-backward"/>
+                        <p:commandButton action="#{controleUnidadeCondominal.dao.anterior()}"
+                                         title="Anterior" update="listagem"
+                                         icon="pi pi-chevron-left"/>  
+                        <p:commandButton action="#{controleUnidadeCondominal.dao.proximo()}"
+                                         title="Proximo" update="listagem"
+                                         icon="pi pi-chevron-right"/>                         
+                        <p:commandButton action="#{controleUnidadeCondominal.dao.ultimo()}"
+                                         title="Ultimo" update="listagem"
+                                         icon="pi pi-step-forward"/>                        
+                    </p:panelGrid>
+                </div>
+                
                 <p:dataTable value="#{controleUnidadeCondominal.dao.listaObjetos}" var="obj"
                              id="listagem">
+                    <f:facet name="footer">
+                        <p:outputLabel value="#{controleUnidadeCondominal.dao.mensagemNavegacao}"/>
+                    </f:facet>
                     <p:column headerText="ID">
                         <p:outputLabel value="#{obj.id}"/>
                     </p:column>

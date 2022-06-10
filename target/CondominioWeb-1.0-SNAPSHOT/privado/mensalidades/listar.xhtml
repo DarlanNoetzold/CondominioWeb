@@ -1,0 +1,160 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html  xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <ui:composition template="/templates/template.xhtml">
+        <ui:define name="titulo">Manutenção de Mensalidades</ui:define>
+        <ui:define name="conteudo">
+            <h:form id="formListagem" prependId="false">
+                <p:growl/>
+                <p:commandButton value="Novo"
+                                 actionListener="#{controleMensalidades.novo()}"
+                                 icon="pi pi-plus"
+                                 update="formEdicao"
+                                 process="@this"
+                                 oncomplete="PF('dlg').show();"/>
+                
+                <div align="center">
+                    <p:panelGrid columns="11">
+                        <p:outputLabel value="Ordem:"/>
+                        <p:selectOneMenu value="#{controleMensalidades.dao.ordemAtual}"
+                                         converter="#{controleMensalidades.dao.converterOrdem}">
+                            <f:selectItems value="#{controleMensalidades.dao.listaOrdem}"
+                                var="ord" itemValue="#{ord.atributo}"/>
+                            <p:ajax update="listagem"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="Filtro:"/>
+                        <p:inputText value="#{controleMensalidades.dao.filtro}">
+                          
+                        </p:inputText>
+                        <p:commandButton value="Filtrar" update="listagem"/>
+                        <p:outputLabel value="Máximo de objetos"/>
+                        <p:selectOneMenu value="#{controleMensalidades.dao.maximoObjetos}">
+                            <f:selectItem itemValue="3" itemLabel="3"/>
+                            <f:selectItem itemValue="5" itemLabel="5"/>
+                            <f:selectItem itemValue="10" itemLabel="10"/>
+                            <f:selectItem itemValue="20" itemLabel="20"/>
+                            <f:selectItem itemValue="50" itemLabel="50"/>
+                            <p:ajax update="listagem"/>
+                        </p:selectOneMenu>
+                        <p:commandButton action="#{controleMensalidades.dao.primeiro()}"
+                                         title="Primeiro" update="listagem"
+                                         icon="pi pi-step-backward"/>
+                        <p:commandButton action="#{controleMensalidades.dao.anterior()}"
+                                         title="Anterior" update="listagem"
+                                         icon="pi pi-chevron-left"/>  
+                        <p:commandButton action="#{controleMensalidades.dao.proximo()}"
+                                         title="Proximo" update="listagem"
+                                         icon="pi pi-chevron-right"/>                         
+                        <p:commandButton action="#{controleMensalidades.dao.ultimo()}"
+                                         title="Ultimo" update="listagem"
+                                         icon="pi pi-step-forward"/>                        
+                    </p:panelGrid>
+                </div>
+                
+                <p:dataTable value="#{controleMensalidades.dao.listaObjetos}" var="obj"
+                             id="listagem">
+                    <f:facet name="footer">
+                        <p:outputLabel value="#{controleMensalidades.dao.mensagemNavegacao}"/>
+                    </f:facet>
+                    <p:column headerText="ID">
+                        <p:outputLabel value="#{obj.id}"/>
+                    </p:column>
+                    <p:column headerText="Valor">
+                        <p:outputLabel value="#{obj.valor}"/>
+                    </p:column> 
+                    <p:column headerText="Vencimento">
+                        <p:outputLabel value="#{obj.vencimento}">
+                            <f:converter converterId="converterCalendar"/>
+                        </p:outputLabel>
+                    </p:column>  
+                    <p:column headerText="Valor de Pagamento">
+                        <p:outputLabel value="#{obj.valorPagamento}"/>
+                    </p:column> 
+                    <p:column headerText="Data de Pagamento">
+                        <p:outputLabel value="#{obj.dataPagamento}">
+                            <f:converter converterId="converterCalendar"/>
+                        </p:outputLabel>
+                    </p:column> 
+                    <p:column headerText="Aluguel">
+                        <p:outputLabel value="#{obj.aluguel.id}"/>
+                    </p:column>     
+                    
+                    <p:column headerText="Ações">
+                        <div align="center">
+                            <p:commandButton actionListener="#{controleMensalidades.alterar(obj.id)}"
+                                             icon="pi pi-pencil"
+                                             title="Editar"
+                                             update="formEdicao"
+                                             process="@this"
+                                             oncomplete="PF('dlg').show();"/>
+                            <p:commandButton actionListener="#{controleMensalidades.excluir(obj.id)}"
+                                             icon="pi pi-trash"
+                                             update="@form"
+                                             process="@this"
+                                             onclick="if (!confirm('Confirma a exclusão')) return false"/>
+                        </div>
+                    </p:column>
+                </p:dataTable>
+            </h:form>
+            
+            <p:dialog header="Edição" widgetVar="dlg" resizable="false"
+                modal="true" width="50%" height="100%">
+                <h:form id="formEdicao" prependId="false">
+                    <p:growl/>
+                    <div align="center">
+                        <p:panelGrid columns="2">
+                            <p:outputLabel value="ID"/>
+                            <p:inputText value="#{controleMensalidades.objeto.id}"
+                                         size="5" readonly="true"/>
+                            <p:outputLabel value="Valor" for="txtValor"/>
+                            <p:inputText id="txtValor" value="#{controleMensalidades.objeto.valor}"
+                                         size="9" maxlength="9"
+                                         placeholder="Obrigatório"/>
+                            <p:outputLabel value="Vencimento" for="txtVencimento"/>
+                            <p:calendar id="txtVencimento" 
+                                        value="#{controleMensalidades.objeto.vencimento}"
+                                        mask="dd/MM/yyyy" navigator="true">
+                                <f:converter converterId="converterCalendar"/>
+                            </p:calendar>
+                            <p:outputLabel value="Valor Pagamento" for="txtValorPagamento"/>
+                            <p:inputText id="txtValorPagamento" value="#{controleMensalidades.objeto.valorPagamento}"
+                                         size="9" maxlength="9"
+                                         placeholder="Obrigatório"/>
+                            <p:outputLabel value="Data Pagamento" for="txtDataPagamento"/>
+                            <p:calendar id="txtDataPagamento" 
+                                        value="#{controleMensalidades.objeto.dataPagamento}"
+                                        mask="dd/MM/yyyy" navigator="true">
+                                <f:converter converterId="converterCalendar"/>
+                            </p:calendar>
+                            <p:outputLabel value="Unidade Condominal" for="selectAluguel"/>
+                            <p:selectOneMenu value="#{controleMensalidades.objeto.aluguel}"
+                                             id="selectAluguel"
+                                             filter="true"
+                                             filterMatchMode="startsWith">
+                                <f:selectItem noSelectionOption="true"
+                                              itemLabel="Selecione um registro"/>
+                                <f:converter binding="#{converterAluguel}"/>
+                                <f:selectItems value="#{controleMensalidades.daoAluguel.listaTodos}"
+                                               var="loc" itemLabel="#{loc.id}"/>
+                            </p:selectOneMenu>
+                        </p:panelGrid>
+                    </div>
+                    <p:panel>
+                        <div align="center">
+                            <p:commandButton value="Salvar"
+                                             icon="pi pi-save"
+                                             actionListener="#{controleMensalidades.salvar()}"
+                                             update="formEdicao formListagem"
+                                             oncomplete="if (!args.validationFailed){PF('dlg').hide();}"/>
+                        </div>
+                    </p:panel>
+                </h:form>
+            </p:dialog>
+        </ui:define>
+    </ui:composition>
+</html>
+
