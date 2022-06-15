@@ -96,27 +96,69 @@
             <p:dialog header="Edição" widgetVar="dlg" resizable="false"
                 modal="true" width="50%" height="100%">
                 <h:form id="formEdicao" prependId="false">
-                    <p:growl/>
-                    <div align="center">
-                        <p:panelGrid columns="2">
-                            <p:outputLabel value="ID"/>
-                            <p:inputText value="#{controleCondominio.objeto.id}"
-                                         size="5" readonly="true"/>
-                            <p:outputLabel value="Nome" for="txtNome"/>
-                            <p:inputText id="txtNome" value="#{controleCondominio.objeto.nome}"
-                                         size="50" maxlength="50"
-                                         placeholder="Obrigatório"/>
-                            <p:outputLabel value="Endereco" for="txtEndereco"/>
-                            <p:inputText id="txtEndereco" value="#{controleCondominio.objeto.endereco}"
-                                         size="50" maxlength="50" placeholder="Obrigatório"/>
-                            <p:outputLabel value="numero" for="txtNumero"/>
-                            <p:inputText id="txtNumero" value="#{controleCondominio.objeto.numero}"
-                                         size="5" maxlength="5" placeholder="Obrigatório"/>
-                            <p:outputLabel value="cep" for="txtCep"/>
-                            <p:inputText id="txtCep" value="#{controleCondominio.objeto.cep}"
-                                         size="8" maxlength="8" placeholder="Obrigatório"/>
-                        </p:panelGrid>
-                    </div>
+                    <p:growl id="growl"/>
+                    <p:tabView id="tab" activeIndex="#{controleCondominio.abaAtiva}">
+                        <p:tab title="Dados Principais" >
+                            <div align="center">
+                                <p:panelGrid columns="2">
+                                    <p:outputLabel value="ID"/>
+                                    <p:inputText value="#{controleCondominio.objeto.id}"
+                                                 size="5" readonly="true"/>
+                                    <p:outputLabel value="Nome" for="txtNome"/>
+                                    <p:inputText id="txtNome" value="#{controleCondominio.objeto.nome}"
+                                                 size="50" maxlength="50"
+                                                 placeholder="Obrigatório"/>
+                                    <p:outputLabel value="Endereco" for="txtEndereco"/>
+                                    <p:inputText id="txtEndereco" value="#{controleCondominio.objeto.endereco}"
+                                                 size="50" maxlength="50" placeholder="Obrigatório"/>
+                                    <p:outputLabel value="numero" for="txtNumero"/>
+                                    <p:inputText id="txtNumero" value="#{controleCondominio.objeto.numero}"
+                                                 size="5" maxlength="5" placeholder="Obrigatório"/>
+                                    <p:outputLabel value="cep" for="txtCep"/>
+                                    <p:inputText id="txtCep" value="#{controleCondominio.objeto.cep}"
+                                                 size="8" maxlength="8" placeholder="Obrigatório"/>
+                                </p:panelGrid>
+                            </div>
+                        </p:tab>
+                        <p:tab title="Recursos">
+                            <p:dataTable value="#{controleCondominio.objeto.recursos}"
+                                        var="recurso" rowIndexVar="idxRecurso"
+                                        id="listaRecurso">
+                               <f:facet name="header">
+                                   <p:commandButton value="Novo Recurso"
+                                                    actionListener="#{controleCondominio.novoRecurso()}"
+                                                    update=":formEdicao"
+                                                    icon="pi pi-plus"
+                                                    process="@this"
+                                                    oncomplete="PF('dlgRecurso').show();"/>
+                               </f:facet>
+                               <p:column headerText="ID">
+                                   <p:outputLabel value="#{recurso.id}"/>
+                               </p:column>
+                               <p:column headerText="Descricao">
+                                   <p:outputLabel value="#{recurso.descricao}"/>
+                               </p:column>
+                               <p:column headerText="Ações">
+                                   <div align="center">
+                                       <p:commandButton 
+                                           actionListener="#{controleCondominio.alterarRecurso(idxRecurso)}"
+                                                        icon="pi pi-pencil"
+                                                        title="Editar"
+                                                        update=":formEdicao"
+                                                        process="@this"
+                                                        oncomplete="PF('dlgRecurso').show();"/>
+                                       <p:commandButton 
+                                           actionListener="#{controleCondominio.removerRecurso(idxRecurso)}"
+                                                        icon="pi pi-trash"
+                                                        update=":formEdicao growl"
+                                                        process="@this"
+                                                        onclick="if (!confirm('Confirma a exclusão'))
+                                                                return false"/>
+                                   </div>
+                               </p:column>                        
+                           </p:dataTable>
+                        </p:tab>                      
+                    </p:tabView>
                     <p:panel>
                         <div align="center">
                             <p:commandButton value="Salvar"
@@ -127,6 +169,31 @@
                         </div>
                     </p:panel>
                 </h:form>
+            </p:dialog>
+            
+            <p:dialog header="Edição de Recurso" widgetVar="dlgRecurso" resizable="false"
+                modal="true">
+                <h:form id="formRecurso">
+                    <p:growl/>
+                    <p:panelGrid columns="2">
+                        <f:facet name="footer">
+                            <div align="center">
+                                <p:commandButton value="Salvar" icon="pi pi-save"
+                                                 actionListener="#{controleCondominio.salvarRecurso()}"
+                                                 update=":formRecurso growl @form"
+                                                 process="@form"
+                            oncomplete="if(!args.validationFailed){PF('dlgRecurso').hide();}"/>                                         
+                            </div>
+                        </f:facet>
+                        <p:outputLabel value="ID"/>
+                        <p:inputText value="#{controleCondominio.recurso.id}" readonly="true"/>
+                        <p:outputLabel value="Descricao" for="txtDescricaoRecurso"/>
+                        <p:inputText id="txtDescricaoRecurso" value="#{controleCondominio.recurso.descricao}"
+                                     placeholder="Obrigatório"
+                                     size="50" maxlength="50"/>
+                    </p:panelGrid>
+                </h:form>
+                <ui:include src="/templates/ajaxstatus.xhtml"/>
             </p:dialog>
         </ui:define>
     </ui:composition>

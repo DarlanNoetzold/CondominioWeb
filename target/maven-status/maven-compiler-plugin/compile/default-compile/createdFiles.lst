@@ -6,6 +6,7 @@ br\edu\ifsul\dao\RecursoDAO.class
 br\edu\ifsul\converters\ConverterAluguel.class
 br\edu\ifsul\util\Util.class
 br\edu\ifsul\converters\ConverterPessoa.class
+br\edu\ifsul\converters\ConverterRecurso.class
 br\edu\ifsul\converters\ConverterOrdem.class
 br\edu\ifsul\converters\ConverterLocatario.class
 br\edu\ifsul\dao\CondominioDAO.class

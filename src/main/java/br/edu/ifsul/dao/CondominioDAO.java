@@ -7,6 +7,7 @@ package br.edu.ifsul.dao;
 import br.edu.ifsul.condominiomodel.Condominio;
 import br.edu.ifsul.converters.ConverterOrdem;
 import java.io.Serializable;
+import java.util.List;
 import javax.ejb.Stateful;
 
 /**
@@ -23,5 +24,17 @@ public class CondominioDAO <TIPO> extends DAOGenerico<Condominio> implements Ser
         ordemAtual = listaOrdem.get(1);
         converterOrdem = new ConverterOrdem();
         converterOrdem.setListaOrdem(listaOrdem);        
+    }
+    
+    @Override
+    public Condominio getObjectByID(Object id) throws Exception {
+        Condominio obj = em.find(Condominio.class, id);
+        obj.getRecursos().size();
+        return obj;
+    }    
+    
+    public List<Condominio> getListaObjetosCompleta(){
+        String jpql = "select distinct t from condominio t left join fetch t.recursos order by t.id";
+        return em.createQuery(jpql).getResultList();
     }
 }
