@@ -6,6 +6,7 @@ package br.edu.ifsul.controle;
 
 import br.edu.ifsul.condominiomodel.Aluguel;
 import br.edu.ifsul.condominiomodel.Locatario;
+import br.edu.ifsul.condominiomodel.Mensalidades;
 import br.edu.ifsul.condominiomodel.UnidadeCondominal;
 import br.edu.ifsul.dao.AluguelDAO;
 import br.edu.ifsul.dao.LocatarioDAO;
@@ -27,6 +28,9 @@ public class ControleAluguel implements Serializable {
     @EJB
     private AluguelDAO<Aluguel> dao;
     private Aluguel objeto;
+    private int abaAtiva;
+    private Mensalidades mensalidades;
+    private Boolean novaMensalidade;
     
     @EJB
     private LocatarioDAO<Locatario> daoLocatario;
@@ -35,6 +39,28 @@ public class ControleAluguel implements Serializable {
     private UnidadeCondominalDAO<UnidadeCondominal> daoUnidadeCondominal;
 
     public ControleAluguel() {
+    }
+    
+    public void novoMensalidades(){
+        mensalidades = new Mensalidades();
+        novaMensalidade = true;
+    }
+    
+    public void alterarMensalidades(int index){
+        mensalidades = objeto.getMensalidades().get(index);
+        novaMensalidade = false;
+    }
+    
+    public void salvarMensalidades(){
+        if (novaMensalidade){
+            objeto.adicionarMensalidade(mensalidades);
+        }
+        Util.mensagemInformacao("Mensalidades adicionado ou alterado com sucesso!");
+    }
+    
+    public void removerMensalidades(int index){
+        objeto.removerMensalidade(index);
+        Util.mensagemInformacao("Mensalidades removido com sucesso!");
     }
     
     public String listar(){
@@ -106,6 +132,30 @@ public class ControleAluguel implements Serializable {
 
     public void setDaoUnidadeCondominal(UnidadeCondominalDAO<UnidadeCondominal> daoUnidadeCondominal) {
         this.daoUnidadeCondominal = daoUnidadeCondominal;
+    }
+
+    public int getAbaAtiva() {
+        return abaAtiva;
+    }
+
+    public void setAbaAtiva(int abaAtiva) {
+        this.abaAtiva = abaAtiva;
+    }
+
+    public Mensalidades getMensalidades() {
+        return mensalidades;
+    }
+
+    public void setMensalidades(Mensalidades mensalidades) {
+        this.mensalidades = mensalidades;
+    }
+
+    public Boolean getNovaMensalidade() {
+        return novaMensalidade;
+    }
+
+    public void setNovaMensalidade(Boolean novaMensalidade) {
+        this.novaMensalidade = novaMensalidade;
     }
     
     

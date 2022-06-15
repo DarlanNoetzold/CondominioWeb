@@ -7,6 +7,7 @@ package br.edu.ifsul.dao;
 import br.edu.ifsul.condominiomodel.Aluguel;
 import br.edu.ifsul.converters.ConverterOrdem;
 import java.io.Serializable;
+import java.util.List;
 import javax.ejb.Stateful;
 
 /**
@@ -23,5 +24,18 @@ public class AluguelDAO <TIPO> extends DAOGenerico<Aluguel> implements Serializa
         ordemAtual = listaOrdem.get(1);
         converterOrdem = new ConverterOrdem();
         converterOrdem.setListaOrdem(listaOrdem);  
+    }
+    
+    
+    @Override
+    public Aluguel getObjectByID(Object id) throws Exception {
+        Aluguel obj = em.find(Aluguel.class, id);
+        obj.getMensalidades().size();
+        return obj;
+    }    
+    
+    public List<Aluguel> getListaObjetosCompleta(){
+        String jpql = "select distinct t from aluguel t left join fetch t.mensalidades order by t.id";
+        return em.createQuery(jpql).getResultList();
     }
 }
