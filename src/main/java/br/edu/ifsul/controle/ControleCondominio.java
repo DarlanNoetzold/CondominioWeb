@@ -5,8 +5,10 @@
 package br.edu.ifsul.controle;
 
 import br.edu.ifsul.condominiomodel.Condominio;
+import br.edu.ifsul.condominiomodel.Pessoa;
 import br.edu.ifsul.condominiomodel.UnidadeCondominal;
 import br.edu.ifsul.dao.CondominioDAO;
+import br.edu.ifsul.dao.PessoaDAO;
 import br.edu.ifsul.util.Util;
 import java.io.Serializable;
 import javax.ejb.EJB;
@@ -19,39 +21,42 @@ import javax.inject.Named;
  */
 @Named(value = "controleCondominio")
 @ViewScoped
-public class ControleCondominio implements Serializable {
+public class ControleCondominio implements Serializable{
     
     @EJB
     private CondominioDAO<Condominio> dao;
     private Condominio objeto;
-    private int abaAtiva;
+    
+    @EJB
+    private PessoaDAO<Pessoa> daoProprietario;
+    
     private UnidadeCondominal unidadeCondominal;
-    private Boolean novoUnidadeCondominal;
-
-
+    private Boolean novaUnidadeCondominal;
+    
     public ControleCondominio() {
+        
     }
     
-    public void novoUnidadeCondominal(){
+    public void novaUnidadeCondominal() {
         unidadeCondominal = new UnidadeCondominal();
-        novoUnidadeCondominal = true;
+        novaUnidadeCondominal = true;
     }
     
-    public void alterarUnidadeCondominal(int index){
+    public void alterarUnidadeCondominal(int index) {
         unidadeCondominal = objeto.getUnidadeCondominal().get(index);
-        novoUnidadeCondominal = false;
+        novaUnidadeCondominal = false;
     }
     
-    public void salvarUnidadeCondominal(){
-        if (novoUnidadeCondominal){
+    public void salvarUnidadeCondominal() {
+        if (novaUnidadeCondominal) {
             objeto.adicionarUnidadeCondominal(unidadeCondominal);
         }
-        Util.mensagemInformacao("UnidadeCondominal adicionado ou alterado com sucesso!");
+        Util.mensagemInformacao("Unidade Condominal adicionada ou alterada com sucesso!");
     }
     
-    public void removerUnidadeCondominal(int index){
+    public void removerUnidadeCondominal(int index) {
         objeto.removerUnidadeCondominal(index);
-        Util.mensagemInformacao("UnidadeCondominal removido com sucesso!");
+        Util.mensagemInformacao("Unidade Condominal removida com sucesso!");
     }
     
     public String listar(){
@@ -60,13 +65,11 @@ public class ControleCondominio implements Serializable {
     
     public void novo(){
         objeto = new Condominio();
-        abaAtiva = 0;
     }
     
     public void alterar(Object id){
         try {
             objeto = dao.getObjectByID(id);
-            abaAtiva = 0;
         } catch (Exception e){
             Util.mensagemInformacao("Erro ao recuperar objeto: " + Util.getMensagemErro(e));
         }
@@ -111,20 +114,12 @@ public class ControleCondominio implements Serializable {
         this.objeto = objeto;
     }
     
-    public int getAbaAtiva() {
-        return abaAtiva;
+    public PessoaDAO<Pessoa> getDaoProprietario() {
+        return daoProprietario;
     }
 
-    public void setAbaAtiva(int abaAtiva) {
-        this.abaAtiva = abaAtiva;
-    }
-
-    public Boolean getNovoUnidadeCondominal() {
-        return novoUnidadeCondominal;
-    }
-
-    public void setNovoUnidadeCondominal(Boolean novoUnidadeCondominal) {
-        this.novoUnidadeCondominal = novoUnidadeCondominal;
+    public void setDaoProprietario(PessoaDAO<Pessoa> daoPessoa) {
+        this.daoProprietario = daoPessoa;
     }
 
     public UnidadeCondominal getUnidadeCondominal() {
@@ -134,6 +129,13 @@ public class ControleCondominio implements Serializable {
     public void setUnidadeCondominal(UnidadeCondominal unidadeCondominal) {
         this.unidadeCondominal = unidadeCondominal;
     }
-    
+
+    public Boolean getNovaUnidadeCondominal() {
+        return novaUnidadeCondominal;
+    }
+
+    public void setNovaUnidadeCondominal(Boolean novaUnidadeCondominal) {
+        this.novaUnidadeCondominal = novaUnidadeCondominal;
+    }
 }
 
