@@ -5,7 +5,7 @@
 package br.edu.ifsul.controle;
 
 import br.edu.ifsul.condominiomodel.Condominio;
-import br.edu.ifsul.condominiomodel.Recurso;
+import br.edu.ifsul.condominiomodel.UnidadeCondominal;
 import br.edu.ifsul.dao.CondominioDAO;
 import br.edu.ifsul.util.Util;
 import java.io.Serializable;
@@ -25,33 +25,33 @@ public class ControleCondominio implements Serializable {
     private CondominioDAO<Condominio> dao;
     private Condominio objeto;
     private int abaAtiva;
-    private Recurso recurso;
-    private Boolean novoRecurso;
+    private UnidadeCondominal unidadeCondominal;
+    private Boolean novoUnidadeCondominal;
 
 
     public ControleCondominio() {
     }
     
-    public void novoRecurso(){
-        recurso = new Recurso();
-        novoRecurso = true;
+    public void novoUnidadeCondominal(){
+        unidadeCondominal = new UnidadeCondominal();
+        novoUnidadeCondominal = true;
     }
     
-    public void alterarRecurso(int index){
-        recurso = objeto.getRecursos().get(index);
-        novoRecurso = false;
+    public void alterarUnidadeCondominal(int index){
+        unidadeCondominal = objeto.getUnidadeCondominal().get(index);
+        novoUnidadeCondominal = false;
     }
     
-    public void salvarRecurso(){
-        if (novoRecurso){
-            objeto.adicionarRecurso(recurso);
+    public void salvarUnidadeCondominal(){
+        if (novoUnidadeCondominal){
+            objeto.adicionarUnidadeCondominal(unidadeCondominal);
         }
-        Util.mensagemInformacao("Recurso adicionado ou alterado com sucesso!");
+        Util.mensagemInformacao("UnidadeCondominal adicionado ou alterado com sucesso!");
     }
     
-    public void removerRecurso(int index){
-        objeto.removerRecurso(index);
-        Util.mensagemInformacao("Recurso removido com sucesso!");
+    public void removerUnidadeCondominal(int index){
+        objeto.removerUnidadeCondominal(index);
+        Util.mensagemInformacao("UnidadeCondominal removido com sucesso!");
     }
     
     public String listar(){
@@ -119,22 +119,21 @@ public class ControleCondominio implements Serializable {
         this.abaAtiva = abaAtiva;
     }
 
-    public Recurso getRecurso() {
-        return recurso;
+    public Boolean getNovoUnidadeCondominal() {
+        return novoUnidadeCondominal;
     }
 
-    public void setRecurso(Recurso recurso) {
-        this.recurso = recurso;
+    public void setNovoUnidadeCondominal(Boolean novoUnidadeCondominal) {
+        this.novoUnidadeCondominal = novoUnidadeCondominal;
     }
 
-    public Boolean getNovoRecurso() {
-        return novoRecurso;
+    public UnidadeCondominal getUnidadeCondominal() {
+        return unidadeCondominal;
     }
 
-    public void setNovoRecurso(Boolean novoRecurso) {
-        this.novoRecurso = novoRecurso;
+    public void setUnidadeCondominal(UnidadeCondominal unidadeCondominal) {
+        this.unidadeCondominal = unidadeCondominal;
     }
-    
     
 }
 

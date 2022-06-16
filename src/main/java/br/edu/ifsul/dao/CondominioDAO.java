@@ -29,12 +29,12 @@ public class CondominioDAO <TIPO> extends DAOGenerico<Condominio> implements Ser
     @Override
     public Condominio getObjectByID(Object id) throws Exception {
         Condominio obj = em.find(Condominio.class, id);
-        obj.getRecursos().size();
+        obj.getUnidadeCondominal().size();
         return obj;
     }    
     
     public List<Condominio> getListaObjetosCompleta(){
-        String jpql = "select distinct t from condominio t left join fetch t.recursos order by t.id";
+        String jpql = "select distinct t from condominio t left join fetch t.unidadeCondominal order by t.id";
         return em.createQuery(jpql).getResultList();
     }
 }
