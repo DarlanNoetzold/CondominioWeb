@@ -16,6 +16,11 @@
                                  update="formEdicao"
                                  process="@this"
                                  oncomplete="PF('dlg').show();"/>
+                <p:commandButton value="Imprimir"
+                                 icon="pi pi-print"
+                                 action="#{controleAluguel.imprimeUnidadeCondominais()}"
+                                 ajax="false"
+                                 onclick="this.form.target = '_blank';"/>
                 
                 <div align="center">
                     <p:panelGrid columns="11">
@@ -98,6 +103,11 @@
                                              update="@form"
                                              process="@this"
                                              onclick="if (!confirm('Confirma a exclusão')) return false"/>
+                            <p:commandButton title="Imprimir"
+                                            icon="pi pi-print"
+                                            action="#{controleAluguel.imprimeUnidadeCondominal(obj.id)}"
+                                            ajax="false"
+                                            onclick="this.form.target = '_blank';"/>
                         </div>
                     </p:column>
                 </p:dataTable>
