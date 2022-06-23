@@ -56,6 +56,7 @@
             <groupId>net.sf.jasperreports</groupId>
             <artifactId>jasperreports</artifactId>
             <version>6.17.0</version>
+            <type>jar</type>
         </dependency>
         <dependency>
             <groupId>br.edu.ifsul.condominiomodel</groupId>
