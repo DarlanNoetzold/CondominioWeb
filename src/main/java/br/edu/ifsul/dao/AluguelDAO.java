@@ -35,7 +35,7 @@ public class AluguelDAO <TIPO> extends DAOGenerico<Aluguel> implements Serializa
     }    
     
     public List<Aluguel> getListaObjetosCompleta(){
-        String jpql = "select distinct t from aluguel t left join fetch t.mensalidades order by t.id";
+        String jpql = "select distinct t from aluguel t order by t.id";
         return em.createQuery(jpql).getResultList();
     }
 }
