@@ -45,18 +45,18 @@ public class ControleAluguel implements Serializable {
     public ControleAluguel() {
     }
     
-    public void imprimeUnidadeCondominais(){
+    public void imprimeAlugeis(){
         HashMap parametros = new HashMap();
-        UtilRelatorios.imprimeRelatorio("relatoriosUnidadeCondominal", parametros, dao.getListaObjetosCompleta());
+        UtilRelatorios.imprimeRelatorio("relatorioAluguel", parametros, dao.getListaObjetosCompleta());
     }
     
-    public void imprimeUnidadeCondominal(Object id){
+    public void imprimeAluguel(Object id){
         try {
             objeto = dao.getObjectByID(id);
             List<Aluguel> lista = new ArrayList<>();
             lista.add(objeto);
             HashMap parametros = new HashMap();
-            UtilRelatorios.imprimeRelatorio("relatoriosUnidadeCondominal", parametros,lista);            
+            UtilRelatorios.imprimeRelatorio("relatorioAluguel", parametros,lista);            
         } catch (Exception e){
             Util.mensagemInformacao("Erro ao imprimir: " + Util.getMensagemErro(e));
         }

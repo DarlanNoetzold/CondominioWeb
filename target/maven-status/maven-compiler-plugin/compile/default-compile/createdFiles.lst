@@ -12,9 +12,11 @@ br\edu\ifsul\converters\ConverterLocatario.class
 br\edu\ifsul\dao\CondominioDAO.class
 br\edu\ifsul\controle\ControleMensalidades.class
 br\edu\ifsul\converters\ConverterCalendar.class
+br\edu\ifsul\util\FabricaObjetos.class
 br\edu\ifsul\controle\ControlePessoa.class
 br\edu\ifsul\converters\ConverterCondominio.class
 br\edu\ifsul\dao\Ordem.class
+br\edu\ifsul\util\UtilRelatorios.class
 br\edu\ifsul\controle\ControleRecurso.class
 br\edu\ifsul\controle\ControleUnidadeCondominal.class
 br\edu\ifsul\controle\ControleLocatario.class
