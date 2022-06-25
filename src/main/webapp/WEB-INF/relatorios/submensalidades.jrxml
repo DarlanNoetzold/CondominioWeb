@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.19.1.final using JasperReports Library version 6.19.1-867c00bf88cd4d784d404379d6c05e1b419e8a4c  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="submensalidades" pageWidth="535" pageHeight="842" columnWidth="535" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="29dd03da-4577-4b61-8cb2-95dd766cf2b6">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="dataPagamento" class="java.util.Calendar">
+		<fieldDescription><![CDATA[dataPagamento]]></fieldDescription>
+	</field>
+	<field name="aluguel" class="br.edu.ifsul.condominiomodel.Aluguel">
+		<fieldDescription><![CDATA[aluguel]]></fieldDescription>
+	</field>
+	<field name="valor" class="java.lang.Double">
+		<fieldDescription><![CDATA[valor]]></fieldDescription>
+	</field>
+	<field name="id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[id]]></fieldDescription>
+	</field>
+	<field name="vencimento" class="java.util.Calendar">
+		<fieldDescription><![CDATA[vencimento]]></fieldDescription>
+	</field>
+	<field name="valorPagamento" class="java.lang.Double">
+		<fieldDescription><![CDATA[valorPagamento]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<columnHeader>
+		<band height="30" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="495" height="30" uuid="8bf10349-91c8-43de-aca6-fb3f2af67fbb"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="8" y="0" width="42" height="30" uuid="56e3e8de-c857-49b4-853e-8e2ecb25a966">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="570010e2-6ec3-4840-a221-6a7791257a95"/>
+				</reportElement>
+				<text><![CDATA[id]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="50" y="0" width="90" height="30" uuid="e2618f91-a1a9-49fd-af7d-840c12eef806">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f95ffe85-ff86-4ae2-9d1f-6e9e6bc9b7d6"/>
+				</reportElement>
+				<text><![CDATA[valor]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="140" y="0" width="100" height="30" uuid="3edaf614-81bb-41a4-8d4a-d51f495a7794">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="d1939ff7-c2f9-4dfa-a6b1-64628867838a"/>
+				</reportElement>
+				<text><![CDATA[aluguel]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="240" y="0" width="100" height="30" uuid="9a487336-16fe-4ab3-88a6-2d277ced2700">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="324a655e-4535-4089-b5fa-fb7d36d053a5"/>
+				</reportElement>
+				<text><![CDATA[dataPagamento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="340" y="0" width="70" height="30" uuid="fbc0fee5-a71e-453b-ad62-b0c90954b4b8">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="334be14c-7d25-495c-878b-e2b8ba792906"/>
+				</reportElement>
+				<text><![CDATA[vencimento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="410" y="0" width="75" height="30" uuid="c7f8b008-2abf-4fbf-a6ef-027f9e3a2bd1">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b400a8a1-bfef-42f1-a72e-998e573d2e5a"/>
+				</reportElement>
+				<text><![CDATA[valorPagamento]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="30" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="495" height="30" uuid="60f7c0c6-97e6-4298-b5ea-bcb764c04bd0"/>
+			</rectangle>
+			<textField>
+				<reportElement x="8" y="0" width="42" height="30" uuid="840c3a1f-cec1-4a56-b9b3-e50854a113de">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="570010e2-6ec3-4840-a221-6a7791257a95"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="50" y="0" width="90" height="30" uuid="b9e1eaae-86cb-4caa-8a72-7674dde6232e">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f95ffe85-ff86-4ae2-9d1f-6e9e6bc9b7d6"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{valor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="140" y="0" width="100" height="30" uuid="71809293-e7ba-41d4-b986-8a0bcddcbc74">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="d1939ff7-c2f9-4dfa-a6b1-64628867838a"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{aluguel}.getId()]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="240" y="0" width="100" height="30" uuid="561c6db1-79f8-4f6e-9e64-2a1ba9c02f8f">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="324a655e-4535-4089-b5fa-fb7d36d053a5"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{dataPagamento}.getTime()]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="340" y="0" width="70" height="30" uuid="27c641ee-850f-49f7-8cd2-dc3cfab85dfb">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="334be14c-7d25-495c-878b-e2b8ba792906"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{vencimento}.getTime()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="409" y="0" width="75" height="30" uuid="9b946d7e-8e63-49f8-8611-88388e9e7d8e">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b400a8a1-bfef-42f1-a72e-998e573d2e5a"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{valorPagamento}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

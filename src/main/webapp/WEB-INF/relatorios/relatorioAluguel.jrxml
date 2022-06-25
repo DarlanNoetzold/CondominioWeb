@@ -2,10 +2,10 @@
 <!-- Created with Jaspersoft Studio version 6.19.1.final using JasperReports Library version 6.19.1-867c00bf88cd4d784d404379d6c05e1b419e8a4c  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="relatorioAluguel" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="4f693a8b-6c78-49c3-8f0d-c32a273d3bf2">
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="DadosAluguel.jrdax"/>
-	<style name="zebra">
+	<style name="zebra" backcolor="#CFD6FA">
 		<conditionalStyle>
 			<conditionExpression><![CDATA[new Boolean($V{REPORT_COUNT}.intValue() % 2 == 0)]]></conditionExpression>
-			<style forecolor="#B1C4F0"/>
+			<style forecolor="#FFFFFF" backcolor="#C6DBF5"/>
 		</conditionalStyle>
 	</style>
 	<queryString>
@@ -112,9 +112,9 @@
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="250" splitType="Stretch">
+		<band height="90" splitType="Stretch">
 			<rectangle>
-				<reportElement style="zebra" x="0" y="0" width="555" height="30" uuid="697ef938-ad28-4962-9a14-53f86d396b0b"/>
+				<reportElement style="zebra" isPrintRepeatedValues="false" x="0" y="0" width="555" height="90" uuid="2739400a-340b-4d6b-b099-bb0591de0e58"/>
 			</rectangle>
 			<textField>
 				<reportElement x="56" y="0" width="64" height="30" uuid="890a8f9d-94aa-484e-b29b-f5dcb2f3038e">
@@ -165,6 +165,20 @@
 				<textElement textAlignment="Left" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{locatario}.getNome()]]></textFieldExpression>
 			</textField>
+			<subreport>
+				<reportElement positionType="Float" x="40" y="60" width="474" height="30" uuid="49e1e9a5-f4ad-4d7c-be37-c36adf5db49d"/>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource(
+	(java.util.List<br.edu.ifsul.condominiomodel.Mensalidades>)$F{mensalidades}
+)]]></dataSourceExpression>
+				<subreportExpression><![CDATA["submensalidades.jasper"]]></subreportExpression>
+			</subreport>
+			<staticText>
+				<reportElement x="15" y="40" width="100" height="30" uuid="ba2ba047-68f1-43cc-aa23-c2718430ea12"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Mensalidades]]></text>
+			</staticText>
 		</band>
 	</detail>
 	<pageFooter>
