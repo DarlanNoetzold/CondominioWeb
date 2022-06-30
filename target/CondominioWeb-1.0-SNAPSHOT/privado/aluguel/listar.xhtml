@@ -107,6 +107,7 @@
                                             icon="pi pi-print"
                                             action="#{controleAluguel.imprimeAluguel(obj.id)}"
                                             ajax="false"
+                                            rendered="#{p:ifGranted('ADMIN')}"
                                             onclick="this.form.target = '_blank';"/>
                         </div>
                     </p:column>

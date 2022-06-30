@@ -13,8 +13,8 @@
         <h:form id="formMenu" prependId="false">
             <p:megaMenu>
                 <p:menuitem value="Inicio"
-                 url="#{facesContext.externalContext.requestContextPath}/index.xhtml"
-                 icon="pi pi-home"/>
+                            url="#{facesContext.externalContext.requestContextPath}/index.xhtml"
+                            icon="pi pi-home"/>
                 <p:submenu label="Cadastros">
                     <p:column>
                         <p:submenu label="Básicos">
@@ -40,9 +40,28 @@
                                         value="Manutenção de Mensalidades"
                                         ajax="false"/>
                         </p:submenu>
+
                     </p:column>
                 </p:submenu>
-                 <p:submenu label="Relatórios">
+                <p:submenu label="Usuario: #{controleLogin.pessoaAutenticada != null ?
+                                             controleLogin.pessoaAutenticada.cpf : ''}" >
+                    <p:column>
+                        <p:submenu label="Efetuar login"
+                                   rendered="#{controleLogin.pessoaAutenticada == null}">
+                            <p:menuitem action="#{controleLogin.irPaginaLogin()}"
+                                        value="Login" icon="pi pi-user"
+                                        ajax="false"/>
+                        </p:submenu>
+                        <p:submenu label="Efetuar logout"
+                                   rendered="#{controleLogin.pessoaAutenticada != null}">
+                            <p:menuitem action="#{controleLogin.efetuarLogout()}"
+                                        value="Logout" icon="pi pi-power-off"
+                                        ajax="false"/>
+                        </p:submenu>
+                    </p:column>
+                </p:submenu>
+
+                <p:submenu label="Relatórios">
                     <p:column>
                         <p:submenu label="Básicos">
                             <p:menuitem action="#{controleAluguel.imprimeAlugeis()}"
@@ -56,7 +75,7 @@
             </p:megaMenu>  
         </h:form>
         <ui:insert name="conteudo">
-            
+
         </ui:insert>
         <ui:include src="ajaxstatus.xhtml"/>
     </h:body>

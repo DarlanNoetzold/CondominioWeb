@@ -41,7 +41,7 @@ public class ConverterLocatario implements Serializable, Converter {
             return null;
         }
         Locatario obj = (Locatario) t;
-        return obj.getId().toString();
+        return obj.getCpf();
     }
 
 }

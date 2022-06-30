@@ -55,7 +55,7 @@ public class ControleLocatario implements Serializable {
     
     public void salvar(){
         try {
-            if (objeto.getId() == null){
+            if (objeto.getCpf()== null){
                 dao.persist(objeto);
             } else {
                 dao.merge(objeto);

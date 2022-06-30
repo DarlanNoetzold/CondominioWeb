@@ -42,7 +42,7 @@ public class ConverterPessoa implements Serializable, Converter {
             return null;
         }
         Pessoa obj = (Pessoa) t;
-        return obj.getId().toString();
+        return obj.getCpf();
     }
 
 }

@@ -22,7 +22,7 @@ import javax.servlet.http.HttpServletRequest;
 @SessionScoped
 public class ControleLogin implements Serializable {
     
-    private Pessoa usuarioAutenticado;
+    private Pessoa pessoaAutenticada;
     @EJB
     private PessoaDAO<Pessoa> dao;
     private String pessoa;
@@ -42,7 +42,7 @@ public class ControleLogin implements Serializable {
                     FacesContext.getCurrentInstance().getExternalContext().getRequest();
             request.login(this.pessoa, this.senha);
             if (request.getUserPrincipal() != null){
-                usuarioAutenticado = 
+                pessoaAutenticada = 
                         dao.getObjectByID(request.getUserPrincipal().getName());
                 Util.mensagemInformacao("Login realizado com sucesso!");               
                 pessoa = "";
@@ -55,9 +55,9 @@ public class ControleLogin implements Serializable {
         }            
     }
     
-    public String logout(){
+    public String efetuarLogout(){
         try {
-            usuarioAutenticado = null;
+            pessoaAutenticada = null;
             HttpServletRequest request = (HttpServletRequest)
                     FacesContext.getCurrentInstance().getExternalContext().getRequest();
             request.logout();          
@@ -68,12 +68,12 @@ public class ControleLogin implements Serializable {
         }          
     }
 
-    public Pessoa getPessoaAutenticado() {
-        return usuarioAutenticado;
+    public Pessoa getPessoaAutenticada() {
+        return pessoaAutenticada;
     }
 
-    public void setPessoaAutenticado(Pessoa usuarioAutenticado) {
-        this.usuarioAutenticado = usuarioAutenticado;
+    public void setPessoaAutenticada(Pessoa pessoaAutenticada) {
+        this.pessoaAutenticada = pessoaAutenticada;
     }
 
     public PessoaDAO<Pessoa> getDao() {
@@ -88,8 +88,8 @@ public class ControleLogin implements Serializable {
         return pessoa;
     }
 
-    public void setPessoa(String usuario) {
-        this.pessoa = usuario;
+    public void setPessoa(String pessoa) {
+        this.pessoa = pessoa;
     }
 
     public String getSenha() {

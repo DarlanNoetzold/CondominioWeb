@@ -95,6 +95,7 @@
                                              icon="pi pi-trash"
                                              update="@form"
                                              process="@this"
+                                             rendered="#{p:ifGranted('ADMIN')}"
                                              onclick="if (!confirm('Confirma a exclusão')) return false"/>
                         </div>
                     </p:column>

@@ -8,6 +8,8 @@ import br.edu.ifsul.converters.ConverterOrdem;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import javax.annotation.security.RolesAllowed;
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
@@ -15,7 +17,7 @@ import javax.persistence.PersistenceContext;
  *
  * @author darlan
  */
-
+@Stateless
 public class DAOGenerico<TIPO> implements Serializable {
     
     private List<TIPO> listaObjetos;
@@ -122,6 +124,7 @@ public class DAOGenerico<TIPO> implements Serializable {
         return (TIPO) em.find(classePersistente, id);
     }
     
+    @RolesAllowed("ADMIN")
     public void remove(TIPO obj) throws Exception {
         obj = em.merge(obj);
         em.remove(obj);

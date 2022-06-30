@@ -59,7 +59,6 @@ public class ControlePessoa implements Serializable {
         try {
             objeto = dao.getObjectByID(id);
             abaAtiva = 0;
-            Util.mensagemInformacao("Objeto removido com sucesso!");
         } catch (Exception e){
             Util.mensagemInformacao("Erro ao recuperar objeto: " + Util.getMensagemErro(e));
         }
@@ -77,7 +76,7 @@ public class ControlePessoa implements Serializable {
     
     public void salvar(){
         try {
-            if (objeto.getId() == null){
+            if (objeto.getCpf()== null){
                 dao.persist(objeto);
             } else {
                 dao.merge(objeto);
