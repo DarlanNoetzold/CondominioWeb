@@ -2,10 +2,10 @@
 <!-- Created with Jaspersoft Studio version 6.19.1.final using JasperReports Library version 6.19.1-867c00bf88cd4d784d404379d6c05e1b419e8a4c  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="relatorioAluguel" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="4f693a8b-6c78-49c3-8f0d-c32a273d3bf2">
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="DadosAluguel.jrdax"/>
-	<style name="zebra" backcolor="#CFD6FA">
+	<style name="zebra" backcolor="#FFFFFF">
 		<conditionalStyle>
 			<conditionExpression><![CDATA[new Boolean($V{REPORT_COUNT}.intValue() % 2 == 0)]]></conditionExpression>
-			<style forecolor="#FFFFFF" backcolor="#C6DBF5"/>
+			<style forecolor="#FFFFFF" backcolor="#ABCCF7"/>
 		</conditionalStyle>
 	</style>
 	<queryString>
@@ -112,9 +112,9 @@
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="90" splitType="Stretch">
+		<band height="99" splitType="Stretch">
 			<rectangle>
-				<reportElement style="zebra" isPrintRepeatedValues="false" x="0" y="0" width="555" height="90" uuid="2739400a-340b-4d6b-b099-bb0591de0e58"/>
+				<reportElement positionType="Float" stretchType="ElementGroupHeight" x="0" y="0" width="555" height="99" backcolor="#FFFFFF" uuid="43c73426-94ce-44b7-8453-e6c44d347e85"/>
 			</rectangle>
 			<textField>
 				<reportElement x="56" y="0" width="64" height="30" uuid="890a8f9d-94aa-484e-b29b-f5dcb2f3038e">

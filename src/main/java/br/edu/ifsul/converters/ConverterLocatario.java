@@ -31,7 +31,7 @@ public class ConverterLocatario implements Serializable, Converter {
         if (string == null || string.equals("Selecione um registro")){
             return null;
         }
-        return em.find(Locatario.class, Integer.parseInt(string));
+        return em.find(Locatario.class, string);
     }
 
     // converte do objeto para a tela

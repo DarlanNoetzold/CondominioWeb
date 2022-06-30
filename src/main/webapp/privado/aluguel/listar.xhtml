@@ -102,12 +102,12 @@
                                              icon="pi pi-trash"
                                              update="@form"
                                              process="@this"
+                                             rendered="#{p:ifGranted('ADMIN')}"
                                              onclick="if (!confirm('Confirma a exclusão')) return false"/>
                             <p:commandButton title="Imprimir"
                                             icon="pi pi-print"
                                             action="#{controleAluguel.imprimeAluguel(obj.id)}"
                                             ajax="false"
-                                            rendered="#{p:ifGranted('ADMIN')}"
                                             onclick="this.form.target = '_blank';"/>
                         </div>
                     </p:column>
@@ -272,7 +272,7 @@
                                         mask="dd/MM/yyyy" navigator="true">
                                 <f:converter converterId="converterCalendar"/>
                             </p:calendar>
-                            <p:outputLabel value="Mensalidades" for="selectAluguel"/>
+                            <p:outputLabel value="Aluguel" for="selectAluguel"/>
                             <p:selectOneMenu value="#{controleAluguel.mensalidades.aluguel}"
                                              id="selectAluguel"
                                              filter="true"

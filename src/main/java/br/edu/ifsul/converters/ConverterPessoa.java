@@ -32,7 +32,7 @@ public class ConverterPessoa implements Serializable, Converter {
         if (string == null || string.equals("Selecione um registro")){
             return null;
         }
-        return em.find(Pessoa.class, Integer.parseInt(string));
+        return em.find(Pessoa.class, string);
     }
 
     // converte do objeto para a tela
