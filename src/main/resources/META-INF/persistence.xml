@@ -5,6 +5,7 @@
     <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
     <jta-data-source>jdbc/condominio</jta-data-source>
     <class>br.edu.ifsul.condominiomodel.Aluguel</class>
+    <class>br.edu.ifsul.condominiomodel.Permissao</class>
     <class>br.edu.ifsul.condominiomodel.Condominio</class>
     <class>br.edu.ifsul.condominiomodel.Locatario</class>
     <class>br.edu.ifsul.condominiomodel.Mensalidades</class>

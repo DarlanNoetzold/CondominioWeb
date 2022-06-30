@@ -23,7 +23,8 @@ import javax.persistence.PersistenceContext;
 public class ConverterPessoa implements Serializable, Converter {
 
     @PersistenceContext(unitName = "Condominio-PWPU")
-    protected EntityManager em;    
+    protected EntityManager em;
+    
     
     // converte da tela para o objeto
     @Override

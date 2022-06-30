@@ -4,6 +4,7 @@ C:\Users\darla\OneDrive\Documentos\NetBeansProjects\CondominioWeb\src\main\java\
 C:\Users\darla\OneDrive\Documentos\NetBeansProjects\CondominioWeb\src\main\java\br\edu\ifsul\dao\DAOGenerico.java
 C:\Users\darla\OneDrive\Documentos\NetBeansProjects\CondominioWeb\src\main\java\br\edu\ifsul\util\UtilRelatorios.java
 C:\Users\darla\OneDrive\Documentos\NetBeansProjects\CondominioWeb\src\main\java\br\edu\ifsul\dao\UnidadeCondominalDAO.java
+C:\Users\darla\OneDrive\Documentos\NetBeansProjects\CondominioWeb\src\main\java\br\edu\ifsul\controle\ControleLogin.java
 C:\Users\darla\OneDrive\Documentos\NetBeansProjects\CondominioWeb\src\main\java\br\edu\ifsul\controle\ControleMensalidades.java
 C:\Users\darla\OneDrive\Documentos\NetBeansProjects\CondominioWeb\src\main\java\br\edu\ifsul\controle\ControleUnidadeCondominal.java
 C:\Users\darla\OneDrive\Documentos\NetBeansProjects\CondominioWeb\src\main\java\br\edu\ifsul\converters\ConverterAluguel.java
@@ -11,6 +12,7 @@ C:\Users\darla\OneDrive\Documentos\NetBeansProjects\CondominioWeb\src\main\java\
 C:\Users\darla\OneDrive\Documentos\NetBeansProjects\CondominioWeb\src\main\java\br\edu\ifsul\converters\ConverterRecurso.java
 C:\Users\darla\OneDrive\Documentos\NetBeansProjects\CondominioWeb\src\main\java\br\edu\ifsul\converters\ConverterPessoa.java
 C:\Users\darla\OneDrive\Documentos\NetBeansProjects\CondominioWeb\src\main\java\br\edu\ifsul\converters\ConverterUnidadeCondominal.java
+C:\Users\darla\OneDrive\Documentos\NetBeansProjects\CondominioWeb\src\main\java\br\edu\ifsul\converters\ConverterPermissao.java
 C:\Users\darla\OneDrive\Documentos\NetBeansProjects\CondominioWeb\src\main\java\br\edu\ifsul\controle\ControleRecurso.java
 C:\Users\darla\OneDrive\Documentos\NetBeansProjects\CondominioWeb\src\main\java\br\edu\ifsul\converters\ConverterCondominio.java
 C:\Users\darla\OneDrive\Documentos\NetBeansProjects\CondominioWeb\src\main\java\br\edu\ifsul\controle\ControleLocatario.java
@@ -18,6 +20,7 @@ C:\Users\darla\OneDrive\Documentos\NetBeansProjects\CondominioWeb\src\main\java\
 C:\Users\darla\OneDrive\Documentos\NetBeansProjects\CondominioWeb\src\main\java\br\edu\ifsul\controle\ControleCondominio.java
 C:\Users\darla\OneDrive\Documentos\NetBeansProjects\CondominioWeb\src\main\java\br\edu\ifsul\dao\Ordem.java
 C:\Users\darla\OneDrive\Documentos\NetBeansProjects\CondominioWeb\src\main\java\br\edu\ifsul\converters\ConverterOrdem.java
+C:\Users\darla\OneDrive\Documentos\NetBeansProjects\CondominioWeb\src\main\java\br\edu\ifsul\dao\PermissaoDAO.java
 C:\Users\darla\OneDrive\Documentos\NetBeansProjects\CondominioWeb\src\main\java\br\edu\ifsul\dao\MensalidadesDAO.java
 C:\Users\darla\OneDrive\Documentos\NetBeansProjects\CondominioWeb\src\main\java\br\edu\ifsul\dao\LocatarioDAO.java
 C:\Users\darla\OneDrive\Documentos\NetBeansProjects\CondominioWeb\src\main\java\br\edu\ifsul\dao\RecursoDAO.java

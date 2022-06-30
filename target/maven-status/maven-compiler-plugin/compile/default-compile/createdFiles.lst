@@ -10,6 +10,7 @@ br\edu\ifsul\converters\ConverterRecurso.class
 br\edu\ifsul\converters\ConverterOrdem.class
 br\edu\ifsul\converters\ConverterLocatario.class
 br\edu\ifsul\dao\CondominioDAO.class
+br\edu\ifsul\dao\PermissaoDAO.class
 br\edu\ifsul\controle\ControleMensalidades.class
 br\edu\ifsul\converters\ConverterCalendar.class
 br\edu\ifsul\controle\ControlePessoa.class
@@ -18,9 +19,11 @@ br\edu\ifsul\dao\Ordem.class
 br\edu\ifsul\util\UtilRelatorios.class
 br\edu\ifsul\controle\ControleRecurso.class
 br\edu\ifsul\controle\ControleUnidadeCondominal.class
+br\edu\ifsul\controle\ControleLogin.class
 br\edu\ifsul\controle\ControleLocatario.class
 br\edu\ifsul\controle\ControleAluguel.class
 br\edu\ifsul\dao\AluguelDAO.class
 br\edu\ifsul\dao\PessoaDAO.class
 br\edu\ifsul\dao\MensalidadesDAO.class
 br\edu\ifsul\dao\LocatarioDAO.class
+br\edu\ifsul\converters\ConverterPermissao.class
