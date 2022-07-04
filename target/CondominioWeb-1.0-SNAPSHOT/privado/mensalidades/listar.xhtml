@@ -90,6 +90,7 @@
                                              title="Editar"
                                              update="formEdicao"
                                              process="@this"
+                                             rendered="#{p:ifGranted('MODERADOR')}"
                                              oncomplete="PF('dlg').show();"/>
                             <p:commandButton actionListener="#{controleMensalidades.excluir(obj.id)}"
                                              icon="pi pi-trash"

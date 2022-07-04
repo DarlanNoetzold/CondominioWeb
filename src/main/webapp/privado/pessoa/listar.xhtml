@@ -79,6 +79,7 @@
                                              title="Editar"
                                              update="formEdicao"
                                              process="@this"
+                                             rendered="#{p:ifGranted('MODERADOR')}"
                                              oncomplete="PF('dlg').show();"/>
                             <p:commandButton actionListener="#{controlePessoa.excluir(obj.cpf)}"
                                              icon="pi pi-trash"

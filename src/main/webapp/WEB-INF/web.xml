@@ -41,6 +41,7 @@
         <auth-constraint>
             <description/>
             <role-name>ADMIN</role-name>
+            <role-name>MODERADOR</role-name>
             <role-name>USUARIO</role-name>
         </auth-constraint>
         <user-data-constraint>
@@ -82,5 +83,9 @@
     <security-role>
         <description>Usuario</description>
         <role-name>USUARIO</role-name>
-    </security-role> 
+    </security-role>
+    <security-role>
+        <description>Moderador</description>
+        <role-name>MODERADOR</role-name>
+    </security-role>
 </web-app>

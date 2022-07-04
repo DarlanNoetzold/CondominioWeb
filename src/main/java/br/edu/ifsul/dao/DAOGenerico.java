@@ -115,7 +115,7 @@ public class DAOGenerico<TIPO> implements Serializable {
     public void persist(TIPO obj) throws Exception {
         em.persist(obj);
     }
-    
+    @RolesAllowed({"ADMIN", "MODERADOR"})
     public void merge(TIPO obj) throws Exception {
         em.merge(obj);
     }
