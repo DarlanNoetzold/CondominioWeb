@@ -273,17 +273,7 @@
                                         mask="dd/MM/yyyy" navigator="true">
                                 <f:converter converterId="converterCalendar"/>
                             </p:calendar>
-                            <p:outputLabel value="Aluguel" for="selectAluguel"/>
-                            <p:selectOneMenu value="#{controleAluguel.mensalidades.aluguel}"
-                                             id="selectAluguel"
-                                             filter="true"
-                                             filterMatchMode="startsWith">
-                                <f:selectItem noSelectionOption="true"
-                                              itemLabel="Selecione um registro"/>
-                                <f:converter binding="#{converterAluguel}"/>
-                                <f:selectItems value="#{controleAluguel.dao.listaTodos}"
-                                               var="loc" itemLabel="#{loc.id}"/>
-                            </p:selectOneMenu>
+                           
                     </p:panelGrid>
                 </h:form>
                 <ui:include src="/templates/ajaxstatus.xhtml"/>

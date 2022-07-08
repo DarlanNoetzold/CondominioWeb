@@ -75,6 +75,7 @@ public class ControleAluguel implements Serializable {
     public void salvarMensalidades(){
         if (novaMensalidade){
             objeto.adicionarMensalidade(mensalidades);
+            mensalidades.setAluguel(objeto);
         }
         Util.mensagemInformacao("Mensalidades adicionado ou alterado com sucesso!");
     }
